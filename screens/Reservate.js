@@ -1,15 +1,15 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { FontFamily, Color, FontSize, Border } from "../GlobalStyles";
 
-const Order = ({navigation}) => {
+const Reservate = () => {
   return (
     <View style={styles.order}>
       <Image
         style={[styles.image1Icon, styles.orderItemPosition]}
         contentFit="cover"
-        source={require("../assets/image-1.png")}
+        source={require("../assets/rectangle-387.png")}
       />
       <Image
         style={styles.orderChild}
@@ -22,47 +22,44 @@ const Order = ({navigation}) => {
         source={require("../assets/layer-85.png")}
       />
       <View style={[styles.orderItem, styles.orderItemPosition]} />
-      <Image
-        style={styles.imageRemovebgPreview1Icon}
-        contentFit="cover"
-        source={require("../assets/imageremovebgpreview-1.png")}
-      />
-      <Text style={[styles.shoyuRamen, styles.ramenFlexBox]}>Shoyu Ramen</Text>
-      <Text style={[styles.waroenkRamen, styles.ramenFlexBox]}>
-        WAROENK RAMEN
-      </Text>
-      <Text style={[styles.rp35000, styles.minTypo]}>RP 35.000</Text>
+      <Text style={[styles.shoyuRamen, styles.ramenFlexBox]}>Akosuki Restaurant</Text>
       <View style={[styles.rectangleParent, styles.groupChildLayout]}>
         <View style={[styles.groupChild, styles.text1Position]} />
-        
+        <Text style={[styles.text, styles.kTypo]}>4,5</Text>
+        <Text style={[styles.k, styles.kTypo]}>3K+</Text>
+        <Text style={[styles.reviews, styles.ratingTypo]}>Reviews</Text>
+        <Text style={[styles.rating, styles.ratingTypo]}>Rating</Text>
+        <View style={[styles.groupInner, styles.groupLayout]} />
+        <Image
+          style={[styles.imageRemovebgPreview31, styles.imageLayout1]}
+          contentFit="cover"
+          source={require("../assets/imageremovebgpreview-3-1.png")}
+        />
+        <Image
+          style={[styles.imageRemovebgPreview61, styles.imageLayout]}
+          contentFit="cover"
+          source={require("../assets/imageremovebgpreview-6-1.png")}
+        />
       </View>
+      <Text style={[styles.description, styles.minTypo]}>Description</Text>
       <Text
         style={styles.shoyuRamenIs}
-      >{`      Shoyu ramen is a popular Japanese noodle soup 
-      dish characterized by its savory soy sauce-based 
-      broth It is one of the classic and widely enjoyed 
-      ramen varieties.`}</Text>
+      >{`Shoyu ramen is a popular Japanese noodle soup dish characterized
+ by its savory soy sauce-based broth. It is one of the classic and widely enjoyed ramen varieties.`}</Text>
+      <Text style={[styles.readMore, styles.minTypo]}>Read more..</Text>
       <View style={styles.rectangleGroup}>
         <View style={[styles.rectangleView, styles.orderInnerLayout]} />
-        <Text style={[styles.text1, styles.textLayout]}>-</Text>
-        <View style={[styles.groupChild1, styles.orderInnerLayout]} />
-        <Text style={[styles.text2, styles.textLayout]}>5</Text>
-        <Text style={[styles.text3, styles.text3Position]}>+</Text>
+        <Text style={[styles.text1, styles.textLayout]}>CHAT</Text>
+        <View style={[styles.rectangleinfo, styles.orderInnerLayout]} />
+        <Text style={[styles.textinfo, styles.textLayout]}>MORE INFO</Text>
       </View>
-      <Pressable onPress={() => {navigation.navigate('Pesanankeranjang')}}>
-      <View style={[styles.orderInner, styles.orderInnerLayout]} />
-      <Text style={[styles.tambahPesanan, styles.pickUpTypo]}>
-        Tambah Pesanan
-      </Text>
-      </Pressable>
-      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   orderItemPosition: {
-    width: 390,
+    width: 391,
     left: 0,
     position: "absolute",
   },
@@ -72,7 +69,7 @@ const styles = StyleSheet.create({
   },
   minTypo: {
     fontFamily: FontFamily.poppinsRegular,
-    color: Color.colorWhite,
+    color: Color.colorBlack,
     textAlign: "left",
     position: "absolute",
   },
@@ -81,13 +78,13 @@ const styles = StyleSheet.create({
     height: 49,
   },
   text1Position: {
-    top: 0,
+    top: 50,
     position: "absolute",
   },
   kTypo: {
     fontFamily: FontFamily.poppinsMedium,
     fontWeight: "500",
-    top: 7,
+    top: 57,
     fontSize: FontSize.size_xl,
     color: Color.colorBlack,
     textAlign: "left",
@@ -95,7 +92,7 @@ const styles = StyleSheet.create({
   },
   ratingTypo: {
     color: Color.colorGray_1100,
-    top: 29,
+    top: 79,
     fontSize: FontSize.size_3xs,
     fontFamily: FontFamily.poppinsMedium,
     fontWeight: "500",
@@ -112,12 +109,12 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderColor: Color.colorBlack,
     borderStyle: "solid",
-    top: 5,
+    top: 55,
     position: "absolute",
   },
   imageLayout1: {
     width: 30,
-    top: 13,
+    top: 63,
   },
   orderInnerLayout: {
     height: 44,
@@ -125,7 +122,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   textLayout: {
-    width: 19,
+    width: 90,
     color: Color.colorBlack,
     textAlign: "left",
   },
@@ -141,7 +138,7 @@ const styles = StyleSheet.create({
   },
   image1Icon: {
     top: -51,
-    height: 541,
+    height: 527,
   },
   orderChild: {
     top: 17,
@@ -171,49 +168,39 @@ const styles = StyleSheet.create({
   imageRemovebgPreview1Icon: {
     width: 11,
     height: 15,
-    left: 30,
-    top: 474,
+    left: 18,
+    top: 524,
     position: "absolute",
   },
   shoyuRamen: {
-    top: 520,
+    top: 470,
     fontWeight: "600",
     fontFamily: FontFamily.poppinsSemiBold,
-    color: Color.colorWhite,
+    color: Color.colorBlack,
     fontSize: FontSize.size_5xl,
-    left: 31,
-  },
-  waroenkRamen: {
-    left: 44,
-    fontSize: FontSize.size_2xs,
-    color: Color.colorDarkslategray_200,
-    fontFamily: FontFamily.poppinsLight,
-    fontWeight: "300",
-    textAlign: "left",
-    top: 472,
+    left: 18,
   },
   rp35000: {
-    top: 520,
-    left: 250,
+    top: 468,
+    left: 270,
     fontSize: FontSize.size_xl,
     fontFamily: FontFamily.poppinsRegular,
-    
   },
   groupChild: {
-    borderRadius: 17,
+    borderRadius: 7,
     backgroundColor: Color.colorWhite,
-    height: 125,
-    width: 334,
-    left: -5,
+    height: 49,
+    width: 331,
+    left: 0,
   },
   text: {
-    left: 290,
+    left: 240,
   },
   k: {
-    left: 176,
+    left: 93,
   },
   reviews: {
-    left: 174,
+    left: 91,
   },
   imageRemovebgPreview11: {
     left: 12,
@@ -221,7 +208,7 @@ const styles = StyleSheet.create({
     top: 13,
   },
   rating: {
-    left: 290,
+    left: 240,
   },
   min: {
     top: 12,
@@ -233,16 +220,16 @@ const styles = StyleSheet.create({
     left: 125,
   },
   groupInner: {
-    left: 240,
+    left: 165,
   },
   imageRemovebgPreview31: {
-    left: 138,
+    left: 55,
     height: 26,
     position: "absolute",
   },
   imageRemovebgPreview61: {
-    top: 9,
-    left: 253,
+    top: 59,
+    left: 203,
     width: 31,
   },
   rectangleParent: {
@@ -252,33 +239,54 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   description: {
-    top: 627,
+    top: 498,
     fontSize: FontSize.size_5xl,
     left: 18,
   },
   shoyuRamenIs: {
-    top: 600,
-    color: "rgba(134, 123, 123, 1)",
-    fontSize: FontSize.size_3xs,
+    top: 533,
+    color: "rgba(0, 0, 0, 0.5)",
+    fontSize: FontSize.size_4xs,
     fontFamily: FontFamily.poppinsRegular,
     textAlign: "left",
-    left: 35,
+    left: 18,
     position: "absolute",
+  },
+  readMore: {
+    top: 555,
+    left: 143,
+    fontSize: FontSize.size_1xs,
   },
   rectangleView: {
     width: 151,
-    top: 5,
+    top: -30,
     height: 44,
     backgroundColor: Color.colorWhite,
-    left: 0,
+    left: 12,
+  },
+  rectangleinfo: {
+    width: 151,
+    top: -30,
+    height: 44,
+    backgroundColor: Color.colorWhite,
+    left: 189,
+  },
+  textinfo: {
+    left: 237,
+    height: 40,
+    fontFamily: FontFamily.biryaniRegular,
+    fontSize: FontSize.size_mid,
+    width: 50,
+    top: -21,
+    position: "absolute",
   },
   text1: {
-    left: 16,
-    height: 30,
+    left: 60,
+    height: 40,
     fontFamily: FontFamily.biryaniRegular,
-    fontSize: FontSize.size_13xl,
-    width: 19,
-    top: 0,
+    fontSize: FontSize.size_mid,
+    width: 50,
+    top: -21,
     position: "absolute",
   },
   groupChild1: {
@@ -289,16 +297,16 @@ const styles = StyleSheet.create({
     height: 44,
   },
   text2: {
-    top: 9,
+    top: 11,
     left: 64,
     fontFamily: FontFamily.lexendDecaRegular,
-    height: 35,
+    height: 2,
     fontSize: FontSize.size_5xl,
     position: "absolute",
   },
   text3: {
     top: 2,
-    height: 35,
+    height: 32,
     width: 19,
     color: Color.colorBlack,
     textAlign: "left",
@@ -306,16 +314,16 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_13xl,
   },
   rectangleGroup: {
-    top: 732,
+    top: 764,
     width: 151,
-    height: 44,
-    left: 24,
+    height: 49,
+    left: 18,
     position: "absolute",
   },
   orderInner: {
-    top: 735,
-    left: 190,
-    width: 165,
+    top: 769,
+    left: 181,
+    width: 191,
     backgroundColor: Color.colorWhite,
   },
   orderChild1: {
@@ -340,11 +348,6 @@ const styles = StyleSheet.create({
     top: 39,
     fontSize: FontSize.size_base,
   },
-  tambahPesanan: {
-    top: 742,
-    left: 200,
-    color: Color.colorBlack,
-  },
   delivery: {
     left: 264,
     color: Color.colorDarkgray_300,
@@ -361,4 +364,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Order;
+export default Reservate;

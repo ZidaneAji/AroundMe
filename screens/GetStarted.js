@@ -31,7 +31,7 @@ is our goal `}</Text>
         source={require("../assets/frontviewfriedpotatoestastyfrenchfriesinsideplatedarkdeskfoodmealdinnerdishingredientspotatoremovebgpreview-1.png")}
       />
       <Image
-        style={styles.cd3d3e2aed4ff0924b7399b201Icon}
+        style={styles.Hotdog}
         contentFit="cover"
         source={require("../assets/136164593-70cd3d3e2aed4ff0924b7399b201c1ebremovebgpreview-1.png")}
       />
@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   pizzaWoodenTrayRemovebgPreIcon: {
-    top: 246,
-    left: 27,
-    width: 426,
-    height: 298,
+    top: 598,
+    left: 115,
+    width: 376,
+    height: 248,
     position: "absolute",
   },
   getStartedChild: {
-    top: 90,
+    top: 703,
     left: 21,
     borderRadius: Border.br_11xl,
     backgroundColor: Color.colorWhite,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   bringingHappinesWith: {
-    top: 318,
+    top: 510,
     left: 36,
     fontSize: FontSize.size_13xl,
     fontWeight: "700",
@@ -69,29 +69,29 @@ const styles = StyleSheet.create({
     color: Color.colorGray_100,
   },
   getStarted1: {
-    top: 101,
-    left: 127,
+    top: 713,
+    left: 120,
     fontSize: FontSize.size_5xl,
     fontWeight: "300",
     fontFamily: FontFamily.poppinsRegular,
     color: Color.colorBlack,
   },
   freshBeefBurgerIsolated6Icon: {
-    top: 660,
-    left: -138,
+    top: 184,
+    left: -158,
     width: 393,
     height: 393,
     position: "absolute",
   },
   frontViewFriedPotatoesTastIcon: {
-    top: 876,
+    top: -32,
     left: 200,
     width: 303,
     height: 454,
     position: "absolute",
   },
-  cd3d3e2aed4ff0924b7399b201Icon: {
-    top: 1002,
+  Hotdog: {
+    top: -158,
     left: -80,
     width: 366,
     height: 410,

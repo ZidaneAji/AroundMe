@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Color, Border, FontFamily, FontSize } from "../GlobalStyles";
 
@@ -8,12 +8,6 @@ const Beranda = ({navigation}) => {
   return (
     <View style={styles.beranda}>
       <View style={styles.vectorParent}>
-        <Image
-          style={styles.groupChild}
-          contentFit="cover"
-          source={require("../assets/vector-4.png")}
-        />
-        <Text style={styles.urutBerdasarkan}>Urut Berdasarkan</Text>
         <View style={[styles.groupWrapper, styles.groupLayout]}>
           <View style={[styles.groupParent, styles.groupLayout]}>
             <View style={styles.groupContainerPosition}>
@@ -30,36 +24,40 @@ const Beranda = ({navigation}) => {
               <View style={[styles.rectangleParent, styles.groupViewLayout]}>
                 <View style={[styles.groupInner, styles.groupInnerLayout]} />
                 <View style={[styles.rectangleView, styles.groupInnerLayout]} />
+                <View style={[styles.rectangleWrapper, styles.groupPosition]}>
+                <View style={styles.groupKid1} />
                 <Text style={[styles.makanan, styles.makananTypo]}>
                   Makanan
                 </Text>
+                </View>
+                <View style={[styles.rectangleWrapper, styles.groupPosition]}>
+                <View style={styles.groupKid2} />
                 <Text style={[styles.minuman, styles.makananTypo]}>
                   Minuman
                 </Text>
+                </View>
               </View>
             </View>
           </View>
         </View>
-        <View style={styles.groupPosition}>
-          <View style={[styles.vectorGroup, styles.groupPosition]}>
-            <Image
-              style={[styles.rectangleIcon, styles.groupPosition]}
-              contentFit="cover"
-              source={require("../assets/rectangle-1.png")}
-            />
-            <Image
-              style={styles.iconlyboldsearch}
-              contentFit="cover"
-              source={require("../assets/iconlyboldsearch.png")}
-            />
-            <Text style={styles.cariLauk}>Cari Lauk...</Text>
-            <Image
-              style={[styles.ellipseIcon, styles.iconLayout]}
-              contentFit="cover"
-              source={require("../assets/ellipse-11.png")}
-            />
+        <Pressable onPress={() => {navigation.navigate('Search')}}>
+        <View style={[styles.rectangleWrapper, styles.groupPosition]}>
+            <View>
+              <View style={styles.groupChildren} /></View>
+            
+              <Image
+                style={styles.iconlyboldsearch}
+                contentFit="cover"
+                source={require("../assets/iconlyboldsearch.png")}
+              />
+              <Text style={styles.cariLauk}>Cari Lauk...</Text>
+              <Image
+                style={[styles.ellipseIcon, styles.iconLayout]}
+                contentFit="cover"
+                source={require("../assets/ellipse-11.png")}
+              />
           </View>
-        </View>
+        </Pressable>
       </View>
       <View style={styles.berandaChild} />
       <View style={styles.menu}>
@@ -106,6 +104,9 @@ const Beranda = ({navigation}) => {
         
         
       </View>
+      <Text style={[styles.disekitar, styles.minuman1Typo]}>Disekitar</Text>
+      
+      <Pressable onPress={() => {navigation.navigate('Resto')}}>
       <View style={[styles.chickenKatsu, styles.chickenLayout]}>
         <View style={styles.chickenChildShadowBox} />
         <Image
@@ -143,7 +144,6 @@ const Beranda = ({navigation}) => {
           <Text style={styles.text2Clr}> (120)</Text>
         </Text>
       </View>
-      <Text style={[styles.disekitar, styles.minuman1Typo]}>Disekitar</Text>
       <View style={[styles.chickenKatsu1, styles.chickenLayout]}>
         <View style={styles.chickenChildShadowBox} />
         <Image
@@ -181,7 +181,14 @@ const Beranda = ({navigation}) => {
           <Text style={styles.text2Clr}> (120)</Text>
         </Text>
       </View>
+      </Pressable>
+      
+      
+      
+      
       <Text style={[styles.minuman1, styles.minuman1Typo]}>Minuman</Text>
+      
+      <Pressable onPress={() => {navigation.navigate('Resto')}}>
       <View style={[styles.chickenKatsu2, styles.chickenPosition]}>
         <View style={styles.chickenChildShadowBox} />
         <Image
@@ -219,6 +226,8 @@ const Beranda = ({navigation}) => {
           <Text style={styles.text2Clr}> (120)</Text>
         </Text>
       </View>
+      </Pressable>
+      <Pressable onPress={() => {navigation.navigate('Resto')}}>
       <View style={[styles.chickenKatsu3, styles.chickenPosition]}>
         <View style={styles.chickenChildShadowBox} />
         <Image
@@ -256,8 +265,10 @@ const Beranda = ({navigation}) => {
           <Text style={styles.text2Clr}> (120)</Text>
         </Text>
       </View>
+      </Pressable>
       <Text style={[styles.mauMakanApa, styles.parjoTypo]}>Mau makan apa</Text>
     </View>
+    
   );
 };
 
@@ -265,6 +276,57 @@ const styles = StyleSheet.create({
   groupLayout: {
     height: 44,
     width: 300,
+    left: 0,
+    position: "absolute",
+  },
+  groupKid2: {
+    backgroundColor: "white",
+    shadowOpacity: 1,
+    elevation: 10,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowColor: "black",
+    borderRadius: Border.br_2xs,
+    top: 0,
+    height: 45,
+    width: 90,
+    left: 111,
+    position: "absolute",
+  },
+  groupKid1: {
+    backgroundColor: "white",
+    shadowOpacity: 1,
+    elevation: 10,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowColor: "black",
+    borderRadius: Border.br_2xs,
+    top: 0,
+    height: 45,
+    width: 85,
+    left: -7,
+    position: "absolute",
+  },
+  groupChildren: {
+    backgroundColor: "white",
+    shadowOpacity: 1,
+    elevation: 10,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowColor: "black",
+    borderRadius: Border.br_16xl,
+    top: 5,
+    height: 45,
+    width: 304,
     left: 0,
     position: "absolute",
   },
@@ -337,8 +399,9 @@ const styles = StyleSheet.create({
   },
   chickenLayout: {
     height: 153,
-    top: 389,
     width: 216,
+    top: 389,
+    
     position: "absolute",
   },
   chickenKatsuItemPosition: {
@@ -386,19 +449,10 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   groupChild: {
-    top: 136,
-    left: 288,
-    width: 13,
-    height: 7,
-    position: "absolute",
-  },
-  urutBerdasarkan: {
-    top: 130,
-    left: 193,
-    fontSize: FontSize.size_2xs,
-    fontFamily: FontFamily.poppinsMedium,
-    color: "#9c9c9c",
-    textAlign: "left",
+    top: 144,
+    left: 295,
+    width: 15,
+    height: 9,
     position: "absolute",
   },
   groupItem: {
@@ -440,7 +494,7 @@ const styles = StyleSheet.create({
     left: 115,
   },
   makanan: {
-    left: 6,
+    left: 0,
   },
   minuman: {
     left: 120,
@@ -466,6 +520,7 @@ const styles = StyleSheet.create({
     top: 76,
   },
   rectangleIcon: {
+    Color: Color.colorBlack,
     borderRadius: Border.br_xl,
     height: 49,
   },
@@ -482,7 +537,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   cariLauk: {
-    top: 11,
+    top: 15,
     left: 52,
     color: "#d8d6d6",
     fontSize: FontSize.size_lg,

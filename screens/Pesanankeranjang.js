@@ -11,12 +11,10 @@ const Pesanankeranjang = ({navigation}) => {
         contentFit="cover"
         source={require("../assets/rectangle-44.png")}
       />
-      <Image
-        style={[styles.pesanankeranjangItem, styles.pesanankeranjangLayout]}
-        contentFit="cover"
-        source={require("../assets/rectangle-45.png")}
-      />
-      <Text style={[styles.pesanan, styles.pesananTypo]}>Pesanan</Text>
+      <Text 
+      style={[styles.pesanan, styles.pesananTypo]}
+      >{`     Waroenk Ramen,
+      Kauman Lama, Purwokerto Lor`}</Text>
       <Text style={[styles.daftarPesanan, styles.pesananTypo]}>
         Daftar Pesanan
       </Text>
@@ -35,24 +33,6 @@ Indomie Telor Special`}</Text>
         <Text style={[styles.text2, styles.textLayout]}>+</Text>
       </View>
       <Text style={[styles.rp50k, styles.rp50kTypo]}>Rp. 50K</Text>
-      <Image
-        style={[
-          styles.joshuaRyderI51a7yy7mqaUnsplIcon,
-          styles.joshuaIconLayout,
-        ]}
-        contentFit="cover"
-        source={require("../assets/joshuaryderi51a7yy7mqaunsplash-9.png")}
-      />
-      <Text style={[styles.indomieTelorSpecial1, styles.indomieLayout]}>{`
-Indomie Telor Special`}</Text>
-      <View style={[styles.rectangleGroup, styles.rectangleLayout]}>
-        <View style={[styles.groupInner, styles.groupPosition]} />
-        <Text style={[styles.text, styles.textLayout]}>-</Text>
-        <View style={[styles.groupItem, styles.groupPosition]} />
-        <Text style={[styles.text1, styles.textLayout]}>5</Text>
-        <Text style={[styles.text2, styles.textLayout]}>+</Text>
-      </View>
-      <Text style={[styles.rp50k1, styles.rp50kTypo]}>Rp. 50K</Text>
       <View style={styles.pesanankeranjangChild1} />
       <Text style={[styles.totalPesanan, styles.rp50kTypo]}>Total Pesanan</Text>
       <Text
@@ -60,8 +40,19 @@ Indomie Telor Special`}</Text>
       >{`Jumlah Item     `}</Text>
       <Text style={[styles.rp150k, styles.rp50kTypo]}>Rp. 150K</Text>
       <Text style={[styles.item, styles.itemTypo]}>15 Item</Text>
+      <Pressable onPress={() => {navigation.navigate('Pembayaran')}}>
       <View style={[styles.pesanankeranjangChild2, styles.indomieLayout]} />
       <Text style={styles.pesanSekarang}>Pesan Sekarang</Text>
+      </Pressable>
+      <View style={[styles.pesanankeranjangdeli]} />
+      <View style={[styles.pesanankeranjangvery]} />
+      <Text style={styles.deliv}>Delivery</Text>
+      <View style={[styles.pesanankeranjangpup]} />
+      <Text style={styles.pup}>Pick Up</Text>
+      <Text style={styles.alamat}>Alamat Pengiriman</Text>
+      <Text style={styles.alamat1}>Kost Komar</Text>
+      <View style={[styles.gantialamat]} />
+      <Text style={styles.gantialamat2}>Ganti Alamat</Text>
       <Image
         style={[
           styles.joshuaRyderI51a7yy7mqaUnsplIcon1,
@@ -122,18 +113,13 @@ Indomie Telor Special`}</Text>
         contentFit="cover"
         source={require("../assets/iconlybolddelete.png")}
       />
-      <Image
-        style={[styles.iconlybolddelete1, styles.iconlybolddeleteLayout]}
-        contentFit="cover"
-        source={require("../assets/iconlybolddelete.png")}
-      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   pesanankeranjangLayout: {
-    width: 375,
+    width: 365,
     position: "absolute",
   },
   pesananTypo: {
@@ -179,7 +165,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   itemTypo: {
-    top: 612,
+    top: 582,
     fontFamily: FontFamily.poppinsMedium,
     color: Color.colorWhite,
     fontWeight: "600",
@@ -208,7 +194,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   iconlybolddeleteLayout: {
-    left: "84.62%",
+    left: "86.62%",
     right: "9.23%",
     width: "6.15%",
     height: "2.84%",
@@ -218,22 +204,23 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   pesanankeranjangChild: {
-    top: 156,
+    top: 286,
     height: 105,
-    left: 7,
+    borderRadius: Border.br_mid,
+    left: 10,
   },
   pesanankeranjangItem: {
-    top: 269,
+    top: 279,
     left: 6,
     height: 111,
   },
   pesanan: {
     top: 48,
-    left: 141,
+    left: 45,
   },
   daftarPesanan: {
-    top: 125,
-    left: 30,
+    top: 247,
+    left: 20
   },
   pesanankeranjangInner: {
     top: 44,
@@ -243,7 +230,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   indomieTelorSpecial: {
-    top: 143,
+    top: 267,
     width: 211,
     height: 49,
     fontFamily: FontFamily.biryaniSemiBold,
@@ -294,26 +281,12 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_lg,
   },
   rectangleParent: {
-    top: 223,
+    top: 355,
   },
   rp50k: {
-    top: 192,
+    top: 320,
     fontFamily: FontFamily.poppinsMedium,
     left: 151,
-    color: Color.colorBlack,
-  },
-  joshuaRyderI51a7yy7mqaUnsplIcon: {
-    top: 283,
-  },
-  indomieTelorSpecial1: {
-    top: 259,
-    width: 211,
-    height: 49,
-    fontFamily: FontFamily.biryaniSemiBold,
-    fontWeight: "600",
-    fontSize: FontSize.size_sm,
-    left: 151,
-    textAlign: "left",
     color: Color.colorBlack,
   },
   groupInner: {
@@ -344,7 +317,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   totalPesanan: {
-    top: 643,
+    top: 616,
     color: Color.colorWhite,
     fontFamily: FontFamily.poppinsMedium,
     fontWeight: "600",
@@ -354,7 +327,7 @@ const styles = StyleSheet.create({
     left: 30,
   },
   rp150k: {
-    top: 646,
+    top: 616,
     left: 298,
     color: Color.colorWhite,
     fontFamily: FontFamily.poppinsMedium,
@@ -366,7 +339,7 @@ const styles = StyleSheet.create({
     height: 17,
   },
   pesanankeranjangChild2: {
-    top: 692,
+    top: 666,
     left: 39,
     borderRadius: Border.br_xl,
     shadowColor: "rgba(0, 0, 0, 0.25)",
@@ -384,8 +357,84 @@ const styles = StyleSheet.create({
     height: 49,
     backgroundColor: Color.colorWhite,
   },
+  pesanankeranjangdeli: {
+    top: 112,
+    left: 16,
+    borderRadius: Border.br_xl,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 4,
+    elevation: 4,
+    shadowOpacity: 1,
+    borderStyle: "solid",
+    borderColor: "#d8d8d8",
+    borderWidth: 1,
+    width: 354,
+    height: 50,
+    backgroundColor: "rgba(255, 188, 57, 1)",
+  },
+  pesanankeranjangvery: {
+    top: 70,
+    left: 25,
+    borderRadius: Border.br_xl,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 4,
+    elevation: 4,
+    shadowOpacity: 1,
+    borderStyle: "solid",
+    borderColor: "#d8d8d8",
+    borderWidth: 1,
+    width: 123,
+    height: 35,
+    backgroundColor: "rgba(255, 255, 255, 1)",
+  },
+  pesanankeranjangpup: {
+    top: 35,
+    left: 240,
+    borderRadius: Border.br_xl,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 4,
+    elevation: 4,
+    shadowOpacity: 1,
+    borderStyle: "solid",
+    borderColor: "rgba(194, 191, 186, 1)",
+    borderWidth: 1,
+    width: 123,
+    height: 35,
+    backgroundColor: "rgba(194, 191, 186, 1)",
+  },
+  gantialamat: {
+    top: 55,
+    left: 240,
+    borderRadius: Border.br_xl,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowRadius: 4,
+    elevation: 4,
+    shadowOpacity: 1,
+    borderStyle: "solid",
+    borderColor: "rgba(255, 188, 57, 1)",
+    borderWidth: 1,
+    width: 123,
+    height: 35,
+    backgroundColor: Color.colorWhite,
+  },
   pesanSekarang: {
-    top: 705,
+    top: 678,
     left: 134,
     fontFamily: FontFamily.biryaniSemiBold,
     fontWeight: "600",
@@ -394,8 +443,58 @@ const styles = StyleSheet.create({
     color: Color.colorBlack,
     position: "absolute",
   },
+  deliv: {
+    top: 125,
+    left: 55,
+    fontFamily: FontFamily.biryaniSemiBold,
+    fontWeight: "600",
+    fontSize: FontSize.size_sm,
+    textAlign: "left",
+    color: "rgba(194, 191, 186, 1)",
+    position: "absolute",
+  },
+  pup: {
+    top: 125,
+    left: 275,
+    fontFamily: FontFamily.biryaniSemiBold,
+    fontWeight: "600",
+    fontSize: FontSize.size_sm,
+    textAlign: "left",
+    color: Color.colorWhite,
+    position: "absolute",
+  },
+  gantialamat2: {
+    top: 180,
+    left: 252,
+    fontFamily: FontFamily.biryaniSemiBold,
+    fontWeight: "600",
+    fontSize: FontSize.size_sm,
+    textAlign: "left",
+    color: Color.colorBlack,
+    position: "absolute",
+  },
+  alamat: {
+    top: 173,
+    left: 25,
+    fontFamily: FontFamily.biryaniSemiBold,
+    fontWeight: "600",
+    fontSize: FontSize.size_sm,
+    textAlign: "left",
+    color: Color.colorBlack,
+    position: "absolute",
+  },
+  alamat1: {
+    top: 195,
+    left: 25,
+    fontFamily: FontFamily.biryaniSemiBold,
+    fontWeight: "600",
+    fontSize: FontSize.size_sm,
+    textAlign: "left",
+    color: Color.colorBlack,
+    position: "absolute",
+  },
   joshuaRyderI51a7yy7mqaUnsplIcon1: {
-    top: 167,
+    top: 297,
   },
   pesanankeranjangChild3: {
     top: 750,
@@ -468,12 +567,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   iconlybolddelete: {
-    top: "26.54%",
+    top: "44%",
     bottom: "70.62%",
-  },
-  iconlybolddelete1: {
-    top: "40.28%",
-    bottom: "56.87%",
   },
   pesanankeranjang: {
     flex: 1,

@@ -6,70 +6,28 @@ import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
 const Pembayaran = ({navigation}) => {
   return (
     <View style={styles.pembayaran}>
-      <Pressable  onPress={() => {navigation.navigate('Pembayaran')}}>
-      <Image
-        style={styles.iconlylightarrowLeft2}
-        contentFit="cover"
-        source={require("../assets/iconlylightarrow--left-2.png")}
-      />
-      </Pressable>
       
-      <Pressable onPress={() => {navigation.navigate('Pesananberhasil')}}>
-      <View style={[styles.rectangleView, styles.rectangleViewTransform]} />
-      </Pressable>
-      <Text style={styles.title}>Checkout</Text>
-      <Text style={styles.address}>Payment Option</Text>
-      <View style={styles.pembayaranChild} />
+      <Text style={styles.title}>{`      Pesanan Berhasil
+      Di bayar di tempat`}</Text>
       <Image
-        style={styles.pembayaranItem}
-        contentFit="cover"
-        source={require("../assets/ellipse-140.png")}
+      style={styles.iconlyberhasil}
+      contentFit="cover"
+      source={require("../assets/Group-33519.png")}
       />
-      <Text style={[styles.label, styles.labelTypo]}>Credit / Debit Card</Text>
-      <View style={[styles.rectangleParent, styles.groupItemLayout]}>
-        <View style={[styles.groupItem, styles.groupItemLayout]} />
-        <Image
-          style={styles.groupInner}
-          contentFit="cover"
-          source={require("../assets/ellipse-141.png")}
-        />
-        <Text style={[styles.label1, styles.labelTypo]}>Dana</Text>
-      </View>
-      <View style={[styles.rectangleParent, styles.groupItemLayout]}>
-        <View style={[styles.groupcod, styles.groupItemLayout]} />
-        <Image
-          style={styles.groupInner1}
-          contentFit="cover"
-          source={require("../assets/ellipse-141.png")}
-        />
-        <Text style={[styles.label1, styles.label1Typo]}>COD</Text>
-      </View>
+      <View style={[styles.rectanglepesanan, styles.rectangleViewTransform]} />
       <View style={styles.groupParent}>
-        <View style={[styles.groupWrapper, styles.wrapperPosition]}>
-          <View style={[styles.totalPembayaranWrapper, styles.wrapperPosition]}>
-            <Text
-              style={[styles.totalPembayaran, styles. iewTransform]}
-            >
-              Total Pembayaran
-            </Text>
-          </View>
-        </View>
+        <Pressable onPress={() => {navigation.navigate('Beranda')}}>
+          <View style={[styles.rectangleView, styles.rectangleViewTransform]} />
+          <Text style={styles.bayar}>Home</Text>
+        </Pressable>
         
-        <Text style={styles.rp132000}>Rp. 132.000</Text>
-        
-        <Text style={styles.bayar}>Bayar</Text>
+        <View style={[styles.rectangleproses, styles.rectangleViewTransform]} />
+        <View style={[styles.rectangleantar, styles.rectangleViewTransform]} />
+        <View style={[styles.rectangleselesai, styles.rectangleViewTransform]} />
+        <Text style={styles.proses}>Pesanan sedang di proses</Text>
+        <Text style={styles.antar}>Pesanan sedang di antar</Text>
+        <Text style={styles.selesai}>Pesanan sedang di antar</Text>
       </View>
-      <View style={styles.subTotalParent}>
-        <Text style={[styles.subTotal, styles.subTotalTypo]}>Sub-total</Text>
-        <Text style={[styles.rp1320001, styles.rp12000Typo]}>Rp. 132.000</Text>
-      </View>
-      <View style={[styles.biayaPengirimanParent, styles.lineViewPosition]}>
-        <Text style={[styles.biayaPengiriman, styles.subTotalTypo]}>
-          Biaya Pengiriman
-        </Text>
-        <Text style={[styles.rp12000, styles.rp12000Typo]}>Rp. 12.000</Text>
-      </View>
-      <View style={[styles.lineView, styles.lineViewPosition]} />
     </View>
   );
 };
@@ -192,20 +150,27 @@ const styles = StyleSheet.create({
     height: 27,
     position: "absolute",
   },
+  iconlyberhasil: {
+    top: 135,
+    left: 65,
+    width: 270,
+    height: 270,
+    position: "absolute",
+  },
   title: {
     marginTop: -771,
-    width: "22.31%",
-    left: "39.23%",
+    width: "35.31%",
+    left: "2.5%",
     lineHeight:25,
     color: "#001833",
     textAlign: "center",
     fontFamily: FontFamily.montserratSemiBold,
-    fontWeight: "600",
+    fontWeight: "500",
     letterSpacing: 0,
     fontSize: FontSize.size_base,
     top: "100%",
     height: 85,
-    width: 95,
+    width: 350,
     position: "absolute",
   },
   address: {
@@ -319,11 +284,83 @@ const styles = StyleSheet.create({
   rectangleView: {
     height: 51.1,
     width: 349,
-    top: 738,
+    top: 55,
     right: "3.46%",
     bottom: "0.85%",
-    left: "5.03%",
-    borderRadius: 70,
+    left: -4,
+    borderRadius: 20,
+    backgroundColor: Color.colorOrange_100,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowRadius: 6,
+    elevation: 6,
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+  rectangleproses: {
+    height: 62.21,
+    width: 323.47,
+    top: -190,
+    right: "3.46%",
+    bottom: "0.85%",
+    left: "3.03%",
+    borderRadius: 20,
+    backgroundColor: Color.colorWhite,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowRadius: 6,
+    elevation: 6,
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+  rectangleantar: {
+    height: 62.21,
+    width: 323.47,
+    top: -115,
+    right: "3.46%",
+    bottom: "0.85%",
+    left: "3.03%",
+    borderRadius: 20,
+    backgroundColor: Color.colorWhite,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowRadius: 6,
+    elevation: 6,
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+  rectangleselesai: {
+    height: 62.21,
+    width: 323.47,
+    top: -40,
+    right: "3.46%",
+    bottom: "0.85%",
+    left: "3.03%",
+    borderRadius: 20,
+    backgroundColor: Color.colorWhite,
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    shadowRadius: 6,
+    elevation: 6,
+    shadowOpacity: 1,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+  rectanglepesanan: {
+    height: 239,
+    width: 349,
+    top: "59.2%",
+    right: "3.46%",
+    bottom: "0.85%",
+    left: "5.1%",
+    borderRadius: 20,
     backgroundColor: Color.colorOrange_100,
     shadowColor: "rgba(0, 0, 0, 0.25)",
     shadowRadius: 6,
@@ -352,14 +389,54 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   bayar: {
-    top: 66,
-    left: 147,
+    top: 70,
+    left: 128,
     lineHeight: 23,
     color: Color.colorWhite,
     width: 92,
     height: 26,
     fontSize: FontSize.size_sm,
     fontFamily: FontFamily.poppinsSemiBold,
+    textAlign: "center",
+    fontWeight: "600",
+    position: "absolute",
+  },
+  proses: {
+    top: -170,
+    left: 45,
+    lineHeight: 23,
+    color: Color.colorBlack,
+    width: 260,
+    height: 45,
+    fontSize: FontSize.size_base,
+    fontFamily: FontFamily.poppinsSemiBold,
+    textAlign: "center",
+    fontWeight: "600",
+    position: "absolute",
+  },
+  antar: {
+    top: -97,
+    left: 43,
+    lineHeight: 23,
+    color: Color.colorBlack,
+    width: 260,
+    height: 45,
+    fontSize: FontSize.size_base,
+    fontFamily: FontFamily.poppinsSemiBold,
+    textAlign: "center",
+    fontWeight: "600",
+    position: "absolute",
+  },
+  selesai: {
+    top: -23,
+    left: 43,
+    lineHeight: 23,
+    color: Color.colorBlack,
+    width: 260,
+    height: 45,
+    fontSize: FontSize.size_base,
+    fontFamily: FontFamily.poppinsSemiBold,
+    textAlign: "center",
     fontWeight: "600",
     position: "absolute",
   },

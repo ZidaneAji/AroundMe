@@ -1,16 +1,22 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import { FontFamily, Color, Border, Padding, FontSize } from "../GlobalStyles";
 
-const Search = () => {
+const Search = ({navigation}) => {
   return (
     <View style={styles.search}>
-      <Image
+      <Pressable>
+        <View style={[styles.rectangleWrapper]}>
+        
+        <Image
         style={[styles.arrowIcon, styles.arrowIconPosition]}
         contentFit="cover"
         source={require("../assets/arrow.png")}
       />
+        </View>
+      </Pressable>
+      
       <View style={[styles.urutkanParent, styles.arrowIconPosition]}>
         <Text style={styles.urutkan}>Urutkan</Text>
         <View style={[styles.sortByParent, styles.parentSpaceBlock]}>
@@ -380,7 +386,7 @@ const Search = () => {
             styles.iconlyregularboldbag2Layout,
           ]}
           contentFit="cover"
-          source={require("../assets/iconlyregularboldprofile1.png")}
+          source={require("../assets/iconlyregularboldprofile.png")}
         />
         <Image
           style={[
@@ -388,9 +394,12 @@ const Search = () => {
             styles.iconlyregularboldbag2Layout,
           ]}
           contentFit="cover"
-          source={require("../assets/iconlyregularbulkhome1.png")}
+          source={require("../assets/iconlyregularbulkhome.png")}
         />
+        <Pressable onPress={() => {navigation.navigate('Beranda')}}>
         <Text style={[styles.beranda, styles.akunTypo]}>Beranda</Text>
+        </Pressable>
+        
         <Text style={[styles.eksplor, styles.akunTypo]}>Eksplor</Text>
         <Text style={[styles.pesanan, styles.akunTypo]}>Pesanan</Text>
         <Text style={[styles.akun, styles.akunTypo]}>Akun</Text>
@@ -401,7 +410,14 @@ const Search = () => {
 
 const styles = StyleSheet.create({
   arrowIconPosition: {
-    left: 20,
+    left: 38,
+    position: "absolute",
+  },
+  rectangleWrapper: {
+    width: 77,
+    top: 0,
+    height: 44,
+    left: 0,
     position: "absolute",
   },
   parentSpaceBlock: {
@@ -461,7 +477,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   akunTypo: {
-    width: 42,
+    width: 45,
     fontFamily: FontFamily.mulishBold,
     lineHeight: 13,
     top: 24,
@@ -471,7 +487,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   arrowIcon: {
-    marginTop: -376,
+    marginTop: -362,
     top: "50%",
     width: 8,
     height: 14,
@@ -527,7 +543,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   urutkanParent: {
-    top: 103,
+    top: 93,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
@@ -697,7 +713,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   searchChild: {
-    top: 766,
+    top: 760,
     borderRadius: Border.br_mid,
     backgroundColor: Color.colorGainsboro_100,
     width: 390,
@@ -707,19 +723,19 @@ const styles = StyleSheet.create({
   },
   iconlyregularbolddiscovery: {
     right: "59.47%",
-    left: "31.44%",
+    left: "32.5%",
   },
   iconlyregularboldbag2: {
     right: "31.44%",
-    left: "59.47%",
+    left: "60.8%",
   },
   iconlyregularboldprofile: {
     right: "3.41%",
-    left: "87.5%",
+    left: "89.8%",
   },
   iconlyregularbulkhome: {
     right: "87.5%",
-    left: "3.41%",
+    left: "4.41%",
   },
   beranda: {
     color: Color.colorDarkgray_300,

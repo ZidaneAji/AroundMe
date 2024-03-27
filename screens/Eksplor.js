@@ -1,11 +1,25 @@
 import * as React from "react";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
-import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
+import { Color, FontFamily, FontSize, Border, Padding } from "../GlobalStyles";
 
 const Eksplor = ({navigation}) => {
   return (
     <View style={styles.eksplor}>
+      <View style={[styles.urutkanParent, styles.arrowIconPosition]}>
+        <Text style={styles.urutkan}>Urutkan</Text>
+        <View style={[styles.sortByParent, styles.parentSpaceBlock]}>
+          <View style={styles.sortBy}>
+            <Text style={[styles.terlaris, styles.textTypo]}>Terkait</Text>
+          </View>
+          <View style={styles.sortBy1}>
+            <Text style={[styles.terlaris1, styles.mClr]}>Terdekat</Text>
+          </View>
+          <View style={styles.sortBy1}>
+            <Text style={[styles.terlaris1, styles.mClr]}>Populer</Text>
+          </View>
+        </View>
+      </View>
       <View style={styles.eksplorChild} />
       <View style={styles.menu}>
         <Image
@@ -45,6 +59,11 @@ const Eksplor = ({navigation}) => {
         <Text style={[styles.beranda, styles.akunTypo]}>Beranda</Text>
         </Pressable>
       </View>
+      <Image
+        style={styles.filter2Icon}
+        contentFit="cover"
+        source={require("../assets/filter-2.png")}
+      />
       <View style={[styles.rectangleParent, styles.parentLayout1]}>
         <View style={[styles.groupChild, styles.parentLayout1]} />
         <View style={styles.searchParent}>
@@ -93,10 +112,13 @@ Chittagong`}</Text>
           </View>
           <Text style={styles.eksploreRestoran}>Restaurant</Text>
         </View>
+        <Pressable onPress={() => {navigation.navigate('Reservate')}}>
         <View style={[styles.rectangleContainer, styles.rectangleLayout]}>
           <View style={[styles.rectangleView, styles.rectangleLayout]} />
           <Text style={[styles.reservate, styles.orderTypo]}>Reservate</Text>
         </View>
+        </Pressable>
+        
       </View>
       <View style={[styles.groupView, styles.groupViewPosition]}>
         <View style={[styles.groupChild1, styles.groupChildShadowBox]} />
@@ -118,10 +140,12 @@ Chittagong`}</Text>
           </View>
           <Text style={styles.eksploreRestoran}>Haatkhola</Text>
         </View>
+        <Pressable onPress={() => {navigation.navigate('Reservate')}}>
         <View style={[styles.rectangleContainer, styles.rectangleLayout]}>
           <View style={[styles.rectangleView, styles.rectangleLayout]} />
-          <Text style={[styles.order, styles.orderTypo]}>Reservate</Text>
+          <Text style={[styles.reservate, styles.orderTypo]}>Reservate</Text>
         </View>
+        </Pressable>
       </View>
       <View style={[styles.rectangleParent2, styles.rectangleLayout1]}>
         <View style={[styles.groupChild3, styles.groupChildShadowBox]} />
@@ -143,10 +167,12 @@ Chittagong`}</Text>
           </View>
           <Text style={styles.eksploreRestoran}>Haatkhola</Text>
         </View>
+        <Pressable onPress={() => {navigation.navigate('Reservate')}}>
         <View style={[styles.rectangleContainer, styles.rectangleLayout]}>
           <View style={[styles.rectangleView, styles.rectangleLayout]} />
-          <Text style={[styles.order, styles.orderTypo]}>Reservate</Text>
+          <Text style={[styles.reservate, styles.orderTypo]}>Reservate</Text>
         </View>
+        </Pressable>
       </View>
       <View style={[styles.rectangleParent4, styles.groupViewPosition]}>
         <View style={[styles.groupChild6, styles.groupChildShadowBox]} />
@@ -168,10 +194,12 @@ Chittagong`}</Text>
           </View>
           <Text style={styles.eksploreRestoran}>Tava Restaurant</Text>
         </View>
+        <Pressable onPress={() => {navigation.navigate('Reservate')}}>
         <View style={[styles.rectangleContainer, styles.rectangleLayout]}>
           <View style={[styles.rectangleView, styles.rectangleLayout]} />
-          <Text style={[styles.order, styles.orderTypo]}>Reservate</Text>
+          <Text style={[styles.reservate, styles.orderTypo]}>Reservate</Text>
         </View>
+        </Pressable>
       </View>
     </View>
   );
@@ -183,6 +211,88 @@ const styles = StyleSheet.create({
     maxWidth: "100%",
     position: "absolute",
     overflow: "hidden",
+  },
+  urutkanParent: {
+    top: 103,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  urutkan: {
+    textAlign: "left",
+    color: Color.colorGray_500,
+    fontFamily: FontFamily.poppinsMedium,
+    fontWeight: "500",
+    lineHeight: 20,
+    letterSpacing: 0,
+    fontSize: FontSize.size_xs,
+  },
+  sortByParent: {
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  sortBy: {
+    backgroundColor: Color.colorCoral_100,
+    paddingVertical: 0,
+    paddingHorizontal: Padding.p_xs,
+    borderRadius: Border.br_5xs,
+    height: 24,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    overflow: "hidden",
+  },
+  sortBy1: {
+    borderColor: Color.colorGray_600,
+    marginLeft: 8,
+    borderWidth: 0.6,
+    borderStyle: "solid",
+    paddingVertical: 0,
+    paddingHorizontal: Padding.p_xs,
+    height: 24,
+    borderRadius: Border.br_5xs,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    overflow: "hidden",
+  },
+  parentSpaceBlock: {
+    marginLeft: 12,
+    justifyContent: "center",
+  },
+  terlaris: {
+    color: Color.colorWhite,
+    textAlign: "center",
+    lineHeight: 20,
+    letterSpacing: 0,
+    fontWeight: "500",
+    fontSize: FontSize.size_xs,
+  },
+  terlaris1: {
+    textAlign: "center",
+    fontSize: FontSize.size_xs,
+  },
+  textTypo: {
+    fontFamily: FontFamily.poppinsMedium,
+    fontWeight: "500",
+    textAlign: "center",
+  },
+  mClr: {
+    color: Color.colorGray_800,
+    fontFamily: FontFamily.poppinsRegular,
+    lineHeight: 20,
+    letterSpacing: 0,
+  },
+  arrowIconPosition: {
+    left: 38,
+    position: "absolute",
+  },
+  filter2Icon: {
+    top: 57,
+    left: 340,
+    width: 24,
+    height: 24,
+    position: "absolute",
   },
   akunTypo: {
     width: 45,
@@ -248,7 +358,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   groupViewPosition: {
-    left: 32,
+    left: 25,
     height: 88,
     width: 340,
     position: "absolute",
@@ -402,9 +512,9 @@ const styles = StyleSheet.create({
     width: 51,
   },
   groupParent: {
-    top: 139,
+    top: 149,
     width: 341,
-    left: 25,
+    left: 27,
   },
   groupItem: {
     elevation: 4,
@@ -518,7 +628,7 @@ const styles = StyleSheet.create({
   },
   rectangleParent2: {
     top: 598,
-    left: 33,
+    left: 25,
   },
   groupChild6: {
     elevation: 4,
@@ -547,7 +657,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
-    left: 32,
+    left: 25,
   },
   eksplor: {
     borderRadius: Border.br_xl,

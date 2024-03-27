@@ -1,15 +1,23 @@
 import * as React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Pressable, TextInput } from "react-native";
 import { Image } from "expo-image";
 import { FontSize, Color, FontFamily, Border } from "../GlobalStyles";
 
-const Sign = () => {
+const Sign = ({navigation}) => {
   return (
     <View style={styles.sign}>
+      <View style={[styles.lineView, styles.lineViewLayout]} />
+      <View style={[styles.lineEmail, styles.lineViewLayout]} />
+      <View style={[styles.lineTelp, styles.lineViewLayout]} />
+      <View style={[styles.linePass, styles.lineViewLayout]} />
+      <View style={[styles.lineCon, styles.lineViewLayout]} />
+      <Pressable onPress={() => {navigation.navigate('Beranda')}}>
       <View style={[styles.rectangleParent, styles.groupChildLayout1]}>
         <View style={[styles.groupChild, styles.groupChildLayout1]} />
         <Text style={[styles.signUp, styles.signUpFlexBox]}>Sign Up</Text>
       </View>
+      </Pressable>
+      
       <Image
         style={styles.signChild}
         contentFit="cover"
@@ -74,7 +82,8 @@ Barumu !`}</Text>
             contentFit="cover"
             source={require("../assets/vector2.png")}
           />
-          <Text style={[styles.email, styles.emailTypo]}>Nama</Text>
+          
+          <TextInput><Text style={[styles.email, styles.emailTypo]}>Nama</Text></TextInput>
         </View>
         <View style={[styles.vectorParent1, styles.groupParentLayout]}>
           <Image
@@ -99,6 +108,40 @@ const styles = StyleSheet.create({
     height: 52,
     width: 332,
     position: "absolute",
+  },
+  inputnama: {
+    height: 45,
+    width: 299,
+    paddingLeft: 30,
+    position: "absolute",
+  },
+  lineViewLayout: {
+    height: 2,
+    width: 315,
+    borderTopWidth: 2,
+    borderColor: Color.colorDarkgray_100,
+    borderStyle: "solid",
+    position: "absolute",
+  },
+  lineView: {
+    left: 35,
+    top: 445,
+  },
+  lineEmail: {
+    left: 35,
+    top: 490,
+  },
+  lineTelp: {
+    left: 35,
+    top: 540,
+  },
+  linePass: {
+    left: 35,
+    top: 590,
+  },
+  lineCon: {
+    left: 35,
+    top: 640,
   },
   signUpFlexBox: {
     textAlign: "left",
@@ -130,7 +173,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_xs,
     color: Color.colorDarkgray_100,
     fontFamily: FontFamily.biryaniSemiBold,
-    left: 27,
+    left: 35,
     textAlign: "left",
     fontWeight: "600",
     position: "absolute",
@@ -151,12 +194,12 @@ const styles = StyleSheet.create({
   },
   signUp: {
     top: 8,
-    left: 134,
+    left: 125,
     fontSize: FontSize.size_xl,
-    fontFamily: FontFamily.beVietnam,
+    fontFamily: FontFamily.poppinsMedium,
     color: Color.colorWhite,
     width: 85,
-    height: 19,
+    height: 31,
     fontWeight: "600",
     textAlign: "left",
   },
@@ -177,7 +220,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: "800",
     fontFamily: FontFamily.biryaniExtraBold,
-    color: Color.colorBlack,
+    color: Color.colorWhite,
   },
   groupItem: {
     top: 28,

@@ -1,17 +1,53 @@
-import * as React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+
+
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, Pressable, Alert } from "react-native";
 import { Image } from "expo-image";
 import { FontFamily, FontSize, Color, Border } from "../GlobalStyles";
+import { TextInput } from "react-native";
+import axios from 'axios';
 
-const Login = ({navigation}) => {
-  return (
-    <View style={styles.login}>
+const Login = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    const apiUrl = 'https://b4e4-103-105-81-189.ngrok-free.app/api/login';
+    try {
+      const response = await axios.post(apiUrl, {
+        email,
+        password,
+      });
+
+      navigation.navigate('Beranda');
+  
+     
+    } catch (error) {
+      Alert.alert('Periksa email dan password');
+    }
+  };
+
+  
+return(
+  <View style={styles.login}>
       <View style={styles.loginChild} />
       <Image
         style={styles.layer85Icon}
         contentFit="cover"
         source={require("../assets/layer-85.png")}
       />
+      <Pressable onPress={handleLogin}>
+        <View style={[styles.groupContainer, styles.groupLayout]}>
+          <View style={styles.rectangleWrapper}>
+            <View style={styles.groupLogin} />
+          </View>
+          <Text style={[styles.logintx, styles.atauFlexBox]}>Login</Text>
+        </View>
+      </Pressable>
+      {/* <Pressable onPress={handleLogin} style={styles.button}>
+        <Text style={styles.buttonText}>Login</Text>
+      </Pressable> */}
+
       <View style={[styles.groupParent, styles.groupLayout]}>
         <View style={styles.rectangleWrapper}>
           <View style={styles.groupChild} />
@@ -36,7 +72,15 @@ const Login = ({navigation}) => {
         />
       </View>
       </Pressable>
+      <Pressable onPress={() => {navigation.navigate('Sign')}}>
+      <Text style={[styles.signup, styles.atauFlexBox]}>
+        Sign Up
+      </Text>
+      </Pressable>
       
+      <Text style={[styles.donthave, styles.atauFlexBox]}>
+        Don't have an account?
+      </Text>
       <Text style={[styles.lupaPassword, styles.atauFlexBox]}>
         Lupa Password ?
       </Text>
@@ -48,13 +92,44 @@ const Login = ({navigation}) => {
         contentFit="cover"
         source={require("../assets/aroundmehighresolutionlogotransparent-1.png")}
       />
-      <View style={[styles.loginItem, styles.loginLayout]} />
-      <View style={[styles.loginInner, styles.loginLayout]} />
+      <View style={[styles.loginItem, styles.loginLayout]} >
+        <TextInput
+        style={[styles.inputuser]}
+        placeholder="Email"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+      />
+      {/* <TextInput
+        placeholder="Email"
+        value={email}
+        onChangeText={(text) => setemail(text)}
+        style={styles.input}
+      /> */}
+
+      </View>
+      <View style={[styles.loginInner, styles.loginLayout]}>
+      <TextInput
+        style={[styles.inputuser]}
+        placeholder="Password"
+        secureTextEntry={true}
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+      />
+       {/* <TextInput
+        placeholder="Password"
+        secureTextEntry={true}
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+        style={styles.input}
+      /> */}
+
+      </View>
       <View style={[styles.lineView, styles.lineViewLayout]} />
       <View style={[styles.loginChild1, styles.lineViewLayout]} />
     </View>
-  );
+)
 };
+
 
 const styles = StyleSheet.create({
   groupLayout: {
@@ -89,13 +164,26 @@ const styles = StyleSheet.create({
     backgroundColor: Color.colorWhite,
     position: "absolute",
   },
+  inputuser: {
+    height: 45,
+    width: 299,
+    left: 18,
+    position: "absolute",
+  },
+  inputpass: {
+    height: 45,
+    width: 299,
+    left: 18,
+    top: 200,
+    position: "absolute",
+  },
   lineViewLayout: {
     height: 2,
     width: 102,
     borderTopWidth: 2,
     borderColor: Color.colorWhite,
     borderStyle: "solid",
-    top: 696,
+    top: 647,
     position: "absolute",
   },
   loginChild: {
@@ -110,7 +198,7 @@ const styles = StyleSheet.create({
   layer85Icon: {
     height: "2.13%",
     width: "5.13%",
-    top: "2.96%",
+    top: "5.5%",
     right: "89.23%",
     bottom: "94.91%",
     left: "5.64%",
@@ -130,7 +218,7 @@ const styles = StyleSheet.create({
     },
     shadowColor: "rgba(0, 0, 0, 0.25)",
     borderRadius: Border.br_8xs,
-    top: 0,
+    top: -52,
     height: 39,
     width: 155,
     left: 0,
@@ -144,7 +232,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   facebook: {
-    top: 7,
+    top: -44,
     left: 51,
     color: Color.colorWhite,
     textAlign: "left",
@@ -153,11 +241,28 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_mini,
   },
   facebookOriginal: {
-    top: 9,
+    top: -42,
     left: 27,
   },
   groupParent: {
     left: 209,
+  },
+  groupLogin: {
+    backgroundColor: Color.colorWhite,
+    shadowOpacity: 1,
+    elevation: 10,
+    shadowRadius: 10,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    borderRadius: Border.br_3xs,
+    top: -195,
+    height: 39,
+    width: 123,
+    left: 21,
+    position: "absolute",
   },
   groupItem: {
     backgroundColor: Color.colorWhite,
@@ -170,14 +275,22 @@ const styles = StyleSheet.create({
     },
     shadowColor: "rgba(0, 0, 0, 0.25)",
     borderRadius: Border.br_8xs,
-    top: 0,
+    top: -52,
     height: 39,
     width: 155,
     left: 0,
     position: "absolute",
   },
+  logintx: {
+    top: -190,
+    left: 62,
+    color: Color.colorBlack,
+    fontFamily: FontFamily.poppinsMedium,
+    fontWeight: "500",
+    fontSize: FontSize.size_mini,
+  },
   google: {
-    top: 8,
+    top: -44,
     left: 62,
     color: Color.colorBlack,
     fontFamily: FontFamily.poppinsMedium,
@@ -185,14 +298,30 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_mini,
   },
   googleOriginal: {
-    top: 10,
+    top: -42,
     left: 38,
   },
   groupContainer: {
     left: 26,
   },
+  signup: {
+    top: 765,
+    left: 260,
+    fontSize: FontSize.size_sm,
+    fontFamily: FontFamily.poppinsMedium,
+    color: Color.colorBlack,
+    textAlign: "left",
+  },
+  donthave: {
+    top: 765,
+    left: 70,
+    fontSize: FontSize.size_sm,
+    fontFamily: FontFamily.poppinsMedium,
+    color: Color.colorWhite,
+    textAlign: "left",
+  },
   lupaPassword: {
-    top: 624,
+    top: 575,
     left: 231,
     fontSize: FontSize.size_sm,
     fontFamily: FontFamily.poppinsMedium,
@@ -200,13 +329,13 @@ const styles = StyleSheet.create({
     textAlign: "left",
   },
   username: {
-    top: 439,
+    top: 390,
   },
   password: {
-    top: 526,
+    top: 477,
   },
   atau: {
-    top: 685,
+    top: 636,
     left: 181,
     fontSize: FontSize.size_xs,
     fontWeight: "600",
@@ -222,10 +351,10 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   loginItem: {
-    top: 467,
+    top: 418,
   },
   loginInner: {
-    top: 554,
+    top: 505,
   },
   lineView: {
     left: 45,

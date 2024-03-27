@@ -64,17 +64,36 @@ const Profil = ({navigation}) => {
       <Text style={[styles.zidaneajigmailcom, styles.textTypo]}>
         zidaneAji@gmail.com
       </Text>
-      <Text style={[styles.pesanan1, styles.logOutTypo]}>Pesanan</Text>
+      <Pressable onPress={() => {navigation.navigate('Recipe')}}>
+      <Text style={[styles.pesanan1, styles.logOutTypo]}>Pesanan Diproses</Text>
+      </Pressable>
+      <Pressable onPress={() => {navigation.navigate('HomeAddMakanan')}}>
+      <Text style={[styles.addmakanan1, styles.logOutTypo]}>Add Makanan</Text>
+      </Pressable>
+      <Pressable onPress={() => {navigation.navigate('AdminRestoran')}}>
+      <Text style={[styles.addrestoran1, styles.logOutTypo]}>Add Restoran</Text>
+      </Pressable>
+      
       <Text style={[styles.logOut, styles.logOutTypo]}>Log Out</Text>
       <Image
         style={[styles.profilInner, styles.lineIconLayout]}
         contentFit="cover"
-        source={require("../assets/line-4.png")}
+        source={require("../assets/Line-putih.png")}
+      />
+      <Image
+        style={[styles.addmakanan, styles.lineIconLayout]}
+        contentFit="cover"
+        source={require("../assets/Line-putih.png")}
+      />
+      <Image
+        style={[styles.addrestoran, styles.lineIconLayout]}
+        contentFit="cover"
+        source={require("../assets/Line-putih.png")}
       />
       <Image
         style={[styles.lineIcon, styles.lineIconLayout]}
         contentFit="cover"
-        source={require("../assets/line-4.png")}
+        source={require("../assets/Line-putih.png")}
       />
       <Image
         style={[styles.vectorIcon, styles.vectorIconLayout]}
@@ -83,6 +102,16 @@ const Profil = ({navigation}) => {
       />
       <Image
         style={[styles.iconlybolddocument, styles.vectorIconLayout]}
+        contentFit="cover"
+        source={require("../assets/iconlybolddocument.png")}
+      />
+      <Image
+        style={[styles.iconlymakanan, styles.vectorIconLayout]}
+        contentFit="cover"
+        source={require("../assets/iconlybolddocument.png")}
+      />
+      <Image
+        style={[styles.iconlyrestoran, styles.vectorIconLayout]}
         contentFit="cover"
         source={require("../assets/iconlybolddocument.png")}
       />
@@ -123,7 +152,7 @@ const styles = StyleSheet.create({
   logOutTypo: {
     fontFamily: FontFamily.biryaniSemiBold,
     fontWeight: "600",
-    left: 80,
+    left: 90,
     fontSize: FontSize.size_xs,
     textAlign: "left",
     color: Color.colorBlack,
@@ -136,7 +165,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   vectorIconLayout: {
-    left: "14.62%",
+    left: "15.4%",
     right: "80.77%",
     width: "4.62%",
     height: "2.13%",
@@ -224,7 +253,7 @@ const styles = StyleSheet.create({
     elevation: 10,
     shadowOpacity: 1,
     width: 322,
-    height: 335,
+    height: 485,
     position: "absolute",
   },
   unsplash8kicpakvsu4Icon: {
@@ -253,23 +282,43 @@ const styles = StyleSheet.create({
     top: 281,
   },
   pesanan1: {
-    top: 406,
+    top: 400,
+  },
+  addmakanan1: {
+    top: 440,
+  },
+  addrestoran1: {
+    top: 479,
   },
   logOut: {
-    top: 442,
+    top: 570,
   },
   profilInner: {
     top: 427,
   },
+  addmakanan: {
+    top: 467,
+  },
+  addrestoran: {
+    top: 507,
+  },
   lineIcon: {
-    top: 464,
+    top: 600,
   },
   vectorIcon: {
-    top: "52.25%",
+    top: 570,
     bottom: "45.62%",
   },
   iconlybolddocument: {
-    top: "47.87%",
+    top: "49%",
+    bottom: "50%",
+  },
+  iconlymakanan: {
+    top: "53.8%",
+    bottom: "50%",
+  },
+  iconlyrestoran: {
+    top: "58.5%",
     bottom: "50%",
   },
   profil: {
